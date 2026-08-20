@@ -23,3 +23,15 @@
 \contentsline {subsection}{\numberline {6.3}Parallel Space Access}{10}{subsection.6.3}%
 \contentsline {section}{\numberline {7}Open Problems}{11}{section.7}%
 \contentsline {section}{\numberline {8}Conclusion}{11}{section.8}%
+\contentsline {section}{\numberline {A}The Topological Shield: Defense Architecture}{12}{appendix.A}%
+\contentsline {subsection}{\numberline {A.1}The Failure Mode of Complexity-Based Defenses}{12}{subsection.A.1}%
+\contentsline {subsection}{\numberline {A.2}Three Shield Mechanisms}{12}{subsection.A.2}%
+\contentsline {subsection}{\numberline {A.3}The \texttt {ShieldedSḫpr} Type}{13}{subsection.A.3}%
+\contentsline {subsection}{\numberline {A.4}Defense Summary}{13}{subsection.A.4}%
+\contentsline {section}{\numberline {B}The Collision Simulation: Sword and Shield}{13}{appendix.B}%
+\contentsline {subsection}{\numberline {B.1}Setup}{13}{subsection.B.1}%
+\contentsline {subsection}{\numberline {B.2}The Sequence}{14}{subsection.B.2}%
+\contentsline {paragraph}{Phase I — Strike.}{14}{section*.7}%
+\contentsline {paragraph}{Phase II — Mirror.}{14}{section*.8}%
+\contentsline {paragraph}{Phase III — Shadow Trap.}{14}{section*.9}%
+\contentsline {subsection}{\numberline {B.3}The Residual Truth}{14}{subsection.B.3}%

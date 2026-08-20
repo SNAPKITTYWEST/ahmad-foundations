@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.7.14)  20 AUG 2026 16:50
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.7.14)  20 AUG 2026 16:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1090,7 +1090,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.2 ...Operator: Becoming as a Type}{3}{section.2}
+l.2 ...Operator: Becoming as a Type}{4}{section.2}
                                                   %
 You may provide a definition with
 \DeclareUnicodeCharacter 
@@ -1106,7 +1106,24 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.22 ...s a Language Construct}{9}{subsection.6.2}
+l.22 ... a Language Construct}{10}{subsection.6.2}
+                                                  %
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `cmtt' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+
+! LaTeX Error: Unicode character ḫ (U+1E2B)
+               not set up for use with LaTeX.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.29 ...{ShieldedSḫpr} Type}{13}{subsection.A.3}
                                                   %
 You may provide a definition with
 \DeclareUnicodeCharacter 
@@ -1174,10 +1191,6 @@ l.126 ...--- the scarab god --- is \textit{sḫpr}
 You may provide a definition with
 \DeclareUnicodeCharacter 
 
-Package microtype Info: Loading generic protrusion settings for font family
-(microtype)             `cmtt' (encoding: T1).
-(microtype)             For optimal results, create family-specific settings.
-(microtype)             See the microtype manual for details.
 
 ! LaTeX Error: Unicode character ꜣ (U+A723)
                not set up for use with LaTeX.
@@ -1761,67 +1774,222 @@ l.694 ...different languages.  The \textit{Sḫpr}
 You may provide a definition with
 \DeclareUnicodeCharacter 
 
-[11] [12] (process_of_survival.aux)
+[11]
+
+! LaTeX Error: Unicode character ḫ (U+1E2B)
+               not set up for use with LaTeX.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.754 The Sḫ
+              pr operator enters by truncating a boundary: isolating a region
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+
+! LaTeX Error: Unicode character ḫ (U+1E2B)
+               not set up for use with LaTeX.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.770 The Sḫ
+              pr operator uses the system's reaction (the Shadow Operator) t...
+
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+
+! LaTeX Error: Unicode character ꜥ (U+A725)
+               not set up for use with LaTeX.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.780 EventHash \texttt{Šꜥ}
+                               for a false result.
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <12> not available
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 783.
+
+! LaTeX Error: Unicode character ḫ (U+1E2B)
+               not set up for use with LaTeX.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.783 ...section{The \texttt{ShieldedSḫpr} Type}
+                                                  
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+[12]
+
+! LaTeX Error: Unicode character ỉ (U+1EC9)
+               not set up for use with LaTeX.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.810 \texttt{Sỉꜣ}
+                       in the incoming operator exhibits the structural symm...
+
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+
+! LaTeX Error: Unicode character ꜣ (U+A723)
+               not set up for use with LaTeX.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.810 \texttt{Sỉꜣ}
+                       in the incoming operator exhibits the structural symm...
+
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+
+! LaTeX Error: Unicode character ḫ (U+1E2B)
+               not set up for use with LaTeX.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.824 Attack phase & Sḫ
+                         pr action & Shield reaction \\
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+
+! LaTeX Error: Unicode character ḫ (U+1E2B)
+               not set up for use with LaTeX.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.848 \item[Attacker (\textit{Sḫpr})]
+                                        Extracts secret $S$ from a shielded ...
+
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+[13]
+
+! LaTeX Error: Unicode character ꜥ (U+A725)
+               not set up for use with LaTeX.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.870 locks on, generates a \texttt{Šꜥ}
+                                           for a lie, and believes it has
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+
+! LaTeX Error: Unicode character ḫ (U+1E2B)
+               not set up for use with LaTeX.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.888 \mathit{Sḫpr}
+                      \otimes \mathit{Shield} \;\longrightarrow\; \mathtt{So...
+
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+
+LaTeX Warning: Command \v invalid in math mode on input line 911.
+
+
+! LaTeX Error: Unicode character ꜥ (U+A725)
+               not set up for use with LaTeX.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.911 \mathtt{Šꜥ\_Final}
+                            = \bigl\{\,
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+Missing character: There is no � in font cmr10!
+[14] [15] (process_of_survival.aux)
  ***********
 LaTeX2e <2026-06-01>
 L3 programming layer <2026-06-18>
  ***********
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package rerunfilecheck Info: File `process_of_survival.out' has not changed.
-(rerunfilecheck)             Checksum: 2B6D808534C7BAA967C19ACCA2280473;5579.
+(rerunfilecheck)             Checksum: 3FA8A1224E2ACFF38BDB650AA21FFA5F;7276.
  ) 
 Here is how much of TeX's memory you used:
- 28274 strings out of 467510
- 510246 string characters out of 5408794
- 1225471 words of memory out of 5000000
- 56916 multiletter control sequences out of 15000+600000
- 652667 words of font info for 101 fonts, out of 8000000 for 9000
+ 28361 strings out of 467510
+ 511415 string characters out of 5408794
+ 1228471 words of memory out of 5000000
+ 56949 multiletter control sequences out of 15000+600000
+ 654027 words of font info for 105 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  102i,9n,107p,1018b,1648s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\jessi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecit
-1000.pk> <C:\Users\jessi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
-0\ecbi1200.pk> <C:\Users\jessi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
-/dpi600\tcrm1095.pk> <C:\Users\jessi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknap
-pen/ec/dpi600\ecit1095.pk> <C:\Users\jessi\AppData\Local\MiKTeX\fonts/pk/ljfour
-/jknappen/ec/dpi600\ectt1000.pk> <C:\Users\jessi\AppData\Local\MiKTeX\fonts/pk/
-ljfour/jknappen/ec/dpi600\ectt1095.pk> <C:\Users\jessi\AppData\Local\MiKTeX\fon
+ <C:\Users\jessi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt
+1200.pk> <C:\Users\jessi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
+0\ecit1000.pk> <C:\Users\jessi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
+/dpi600\ecbi1200.pk> <C:\Users\jessi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknap
+pen/ec/dpi600\tcrm1095.pk> <C:\Users\jessi\AppData\Local\MiKTeX\fonts/pk/ljfour
+/jknappen/ec/dpi600\ecit1095.pk> <C:\Users\jessi\AppData\Local\MiKTeX\fonts/pk/
+ljfour/jknappen/ec/dpi600\ectt1000.pk> <C:\Users\jessi\AppData\Local\MiKTeX\fon
 ts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\jessi\AppData\Local\MiKT
 eX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbi1440.pk> <C:\Users\jessi\AppData\Loca
-l\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1095.pk> <C:\Users\jessi\AppDat
-a\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1095.pk> <C:\Users\jessi\
-AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbi1095.pk> <C:\Users\
-jessi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1095.pk> <C:\
-Users\jessi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk
-> <C:\Users\jessi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1
-000.pk> <C:\Users\jessi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600
-\ecrm1000.pk> <C:\Users\jessi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/
-dpi600\ecbx1000.pk> <C:\Users\jessi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknapp
-en/ec/dpi600\ecrm0800.pk> <C:\Users\jessi\AppData\Local\MiKTeX\fonts/pk/ljfour/
-jknappen/ec/dpi600\ecti1200.pk> <C:\Users\jessi\AppData\Local\MiKTeX\fonts/pk/l
-jfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\jessi\AppData\Local\MiKTeX\font
-s/pk/ljfour/jknappen/ec/dpi600\ecbx1728.pk><C:/Users/jessi/AppData/Local/Progra
-ms/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/jessi/AppData/Loc
-al/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/jessi/Ap
-pData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users
-/jessi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><
-C:/Users/jessi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmm
-i7.pfb><C:/Users/jessi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfont
-s/cm/cmmi8.pfb><C:/Users/jessi/AppData/Local/Programs/MiKTeX/fonts/type1/public
-/amsfonts/cm/cmr10.pfb><C:/Users/jessi/AppData/Local/Programs/MiKTeX/fonts/type
-1/public/amsfonts/cm/cmr12.pfb><C:/Users/jessi/AppData/Local/Programs/MiKTeX/fo
-nts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/jessi/AppData/Local/Programs/Mi
-KTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/jessi/AppData/Local/Pr
-ograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/jessi/AppData/
-Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/jessi
-/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><
-C:/Users/jessi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbol
-s/msbm10.pfb>
-Output written on process_of_survival.pdf (12 pages, 454976 bytes).
+l\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1095.pk> <C:\Users\jessi\AppDat
+a\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1095.pk> <C:\Users\jessi\
+AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1095.pk> <C:\Users\
+jessi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbi1095.pk> <C:\
+Users\jessi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1095.pk
+> <C:\Users\jessi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1
+440.pk> <C:\Users\jessi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600
+\ecti1000.pk> <C:\Users\jessi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/
+dpi600\ecrm1000.pk> <C:\Users\jessi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknapp
+en/ec/dpi600\ecbx1000.pk> <C:\Users\jessi\AppData\Local\MiKTeX\fonts/pk/ljfour/
+jknappen/ec/dpi600\ecrm0800.pk> <C:\Users\jessi\AppData\Local\MiKTeX\fonts/pk/l
+jfour/jknappen/ec/dpi600\ecti1200.pk> <C:\Users\jessi\AppData\Local\MiKTeX\font
+s/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\jessi\AppData\Local\MiKTe
+X\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1728.pk><C:/Users/jessi/AppData/Local/
+Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/jessi/AppDa
+ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/je
+ssi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:
+/Users/jessi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6
+.pfb><C:/Users/jessi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/
+cm/cmmi7.pfb><C:/Users/jessi/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
+msfonts/cm/cmmi8.pfb><C:/Users/jessi/AppData/Local/Programs/MiKTeX/fonts/type1/
+public/amsfonts/cm/cmr10.pfb><C:/Users/jessi/AppData/Local/Programs/MiKTeX/font
+s/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/jessi/AppData/Local/Programs/MiK
+TeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/jessi/AppData/Local/Progr
+ams/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/jessi/AppData/Lo
+cal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/jessi/Ap
+pData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users
+/jessi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+<C:/Users/jessi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbo
+ls/msam10.pfb><C:/Users/jessi/AppData/Local/Programs/MiKTeX/fonts/type1/public/
+amsfonts/symbols/msbm10.pfb>
+Output written on process_of_survival.pdf (15 pages, 508970 bytes).
 PDF statistics:
- 1103 PDF objects out of 1200 (max. 8388607)
- 123 named destinations out of 1000 (max. 500000)
- 18645 words of extra memory for PDF output out of 20736 (max. 10000000)
+ 1252 PDF objects out of 1440 (max. 8388607)
+ 173 named destinations out of 1000 (max. 500000)
+ 20765 words of extra memory for PDF output out of 24883 (max. 10000000)
 
