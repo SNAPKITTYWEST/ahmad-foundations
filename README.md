@@ -45,6 +45,49 @@ Proof by contrapositive: Engine ∈ PR ⟹ Oracle_σ² ∈ P ⟹ P = NP.
 The σ²_θ oracle is BQP-complete (quantum amplitude estimation).
 PR ⊆ P ⊆ BQP, and the engine strictly requires BQP under P ≠ NP.
 
+### Black Hole Gravity — 30 Theorems
+
+| File | Theorems | Content |
+|------|---------|---------|
+| `black-hole/BlackHoleGravity.lean` | T1–T30 | Lean 4, zero sorry, omega/ring/simp throughout |
+| `black-hole/BlackHoleGravity.idr` | T1–T20+ | Idris 2 dependent-type witnesses; one `believe_me` on ISCO |
+
+**Schwarzschild geometry — T1–T8:**
+- T1: `time_dilation r r_s > 0` for `r > r_s` (metric positive outside horizon)
+- T2: Event horizon is exactly at `r = r_s`
+- T3: Gravitational potential is negative at origin
+- T4: Escape velocity at horizon equals 1 (in natural units)
+- T5: Time dilation vanishes at horizon
+- T6: Redshift increases as `r → r_s`
+- T7: Hawking temperature inversely proportional to mass
+- T8: Bekenstein entropy = `mass²` (area law)
+
+**Structure theorems — T9–T15:**
+- T9: No-hair theorem (`BlackHole` equality from mass, charge, angular momentum)
+- T10: Penrose process requires ergosphere (angular momentum > 0)
+- T11: Kerr reduces to Schwarzschild at zero angular momentum
+- T12: Charged black hole has smaller effective horizon (Reissner-Nordström)
+- T13: Cosmic censorship — `naked_singularity = false` iff charge² + L² ≤ mass²
+- T14: Entropy non-increasing under Hawking evaporation
+- T15: Holographic bound — volume entropy ≤ surface entropy × radius
+
+**Dynamics and radiation — T16–T30:**
+- T16: Gravitational collapse inevitable inside Schwarzschild radius
+- T17: Tidal forces increase as `r → 0` (r² denominator)
+- T18: Photon sphere at 3M, outside horizon at 2M
+- T19: ISCO at 6M, outside photon sphere at 3M
+- T20: Gravitational wave amplitude decreases with distance
+- T21: Binary merger — total mass ≥ radiated energy
+- T22: Ringdown frequency inversely proportional to mass
+- T23: Frame dragging rate decreases as r³
+- T24: Geodesic deviation increases near singularity (r³ denominator)
+- T25: Kruskal-Szekeres coordinates exist for all spacetime points
+- T26: Penrose null infinity is reachable from any finite r
+- T27: Evaporation time scales as M³
+- T28: Page time = evaporation time / 2
+- T29: Entanglement entropy at horizon ≤ Bekenstein entropy (firewall bound)
+- T30: ER=EPR — entangled wormhole connection requires entanglement = true
+
 ---
 
 ## Sorry Status
@@ -54,7 +97,9 @@ PR ⊆ P ⊆ BQP, and the engine strictly requires BQP under P ≠ NP.
 | `nlbhe/LindbladPreservation.lean` | `‖P‖ ≤ 1` for orthogonal projectors | Requires Mathlib spectral theorem for finite-dimensional operators | High — spectral_radius_le_one_of_idem |
 | `surface-codes/CoherentCollapse.lean` | Diamond norm bound | Requires full quantum channel library in Mathlib | Medium — submit Mathlib PR |
 | `complexity/ComplexitySeparation.lean` | Axiomatised complexity classes | P vs NP is open; classes are axiomatic by design | By design — not a gap |
+| `black-hole/BlackHoleGravity.idr` | `iscoRadius m > photonSphereRadius m` | Double arithmetic not decidable in Idris 2 without SMT backend | Low — Lean 4 counterpart proves this with omega |
 
+All 30 theorems in `black-hole/BlackHoleGravity.lean` are **sorry-free** (Lean 4, omega/ring/simp).
 All theorems in `nlbhe/SingularityElim.lean`, `nlbhe/PhaseVariance.lean`,
 and `surface-codes/FactoryThroughput.lean` are **sorry-free**.
 
@@ -73,8 +118,11 @@ ahmad-foundations/
 ├── surface-codes/
 │   ├── CoherentCollapse.lean  # Main: ‖ℰ_s - 𝒫_s‖_◇ ≤ 2δ√|S|
 │   └── FactoryThroughput.lean # Theorems 6-7: N_T > 9 crossover
-└── complexity/
-    └── ComplexitySeparation.lean  # Main: (P≠NP) ⟹ Engine ∉ PR
+├── complexity/
+│   └── ComplexitySeparation.lean  # Main: (P≠NP) ⟹ Engine ∉ PR
+└── black-hole/
+    ├── BlackHoleGravity.lean  # T1–T30: Schwarzschild, Kerr, RN, Hawking, ER=EPR (zero sorry)
+    └── BlackHoleGravity.idr   # Idris 2 dependent-type witnesses (1 believe_me on ISCO)
 ```
 
 ---
