@@ -1,0 +1,25 @@
+\contentsline {section}{\numberline {1}Ahmad's Introduction: The Language of Becoming}{3}{section.1}%
+\contentsline {section}{\numberline {2}The \textit {Sḫpr} Operator: Becoming as a Type}{4}{section.2}%
+\contentsline {subsection}{\numberline {2.1}The Egyptian Substrate}{4}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}The Operator Definition}{4}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}The Process of Survival in the Type}{4}{subsection.2.3}%
+\contentsline {section}{\numberline {3}The Process of Survival: Formal Framework}{5}{section.3}%
+\contentsline {subsection}{\numberline {3.1}The Ensemble Oracle}{5}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}The Three Tools Formalized}{5}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Mirror Inference}{6}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}The Parallel Space}{6}{subsection.3.4}%
+\contentsline {section}{\numberline {4}P~vs.~NP as a Spectral Survival Question}{6}{section.4}%
+\contentsline {subsection}{\numberline {4.1}The John Dee Operator: Explicit Construction}{6}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}The Invariant Question: The Exact Boundary of P~vs.~NP}{7}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Why Known Invariants Fail: The Algebraic Barrier}{8}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}The Missing Mathematics: What $I(K_F)$ Would Require}{8}{subsection.4.4}%
+\contentsline {section}{\numberline {5}The Fibonacci Anyon Connection}{9}{section.5}%
+\contentsline {subsection}{\numberline {5.1}The Minimal Survival Sequence}{9}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Mirror Inference in the $F$-Matrix}{9}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Connection to the Invariant Question}{9}{subsection.5.3}%
+\contentsline {section}{\numberline {6}The Quantum Language: Ahmad's Formal System}{10}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Design Principles}{10}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}The \textit {Sḫpr} Operator as a Language Construct}{10}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Parallel Space Access}{10}{subsection.6.3}%
+\contentsline {section}{\numberline {7}Open Problems}{11}{section.7}%
+\contentsline {section}{\numberline {8}Conclusion}{11}{section.8}%
