@@ -1,0 +1,42 @@
+\contentsline {section}{\numberline {1}Author's Introduction}{3}{section.1}%
+\contentsline {section}{\numberline {2}Introduction}{4}{section.2}%
+\contentsline {subsection}{\numberline {2.1}The Post-Quantum Landscape and Its Gap}{4}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Why Non-Associativity Matters Cryptographically}{4}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}The Negative Result That Motivates GEP}{4}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Contributions}{4}{subsection.2.4}%
+\contentsline {section}{\numberline {3}Mathematical Foundations}{5}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Octonions $\mathbb {O}$}{5}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}The Albert Algebra $J_3(\mathbb {O})$}{5}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}The Exceptional Lie Group $F_4$}{6}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}N\={u}n-Space}{6}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Finite-Field Instantiation}{6}{subsection.3.5}%
+\contentsline {section}{\numberline {4}The GEP Algorithm}{6}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Key Generation}{6}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Collapse Operator}{7}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Encryption and Decryption}{7}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Key Exchange (KEM)}{7}{subsection.4.4}%
+\contentsline {section}{\numberline {5}The FBC Break: Why Representation Keys Fail}{8}{section.5}%
+\contentsline {subsection}{\numberline {5.1}The FBC Construction}{8}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}The Sylvester Equation Attack}{8}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Root Cause and the Design Lesson for GEP}{8}{subsection.5.3}%
+\contentsline {section}{\numberline {6}Security Analysis}{9}{section.6}%
+\contentsline {subsection}{\numberline {6.1}The Non-Associative Hidden Subgroup Problem}{9}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Grover Resistance}{9}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Algebraic Attack Bounds}{9}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Side-Channel Model}{9}{subsection.6.4}%
+\contentsline {subsection}{\numberline {6.5}The Eight Security Conjectures}{10}{subsection.6.5}%
+\contentsline {section}{\numberline {7}Formal Verification}{10}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Verification Architecture}{10}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Proved Results (Zero Sorry Terms)}{11}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Axioms and Conjectures in the Formal Record}{11}{subsection.7.3}%
+\contentsline {section}{\numberline {8}Implementation}{11}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Core Operations}{11}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Performance Targets}{12}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}Streaming Memory Model}{12}{subsection.8.3}%
+\contentsline {subsection}{\numberline {8.4}Hardware Acceleration}{12}{subsection.8.4}%
+\contentsline {subsection}{\numberline {8.5}Hybrid KEM}{12}{subsection.8.5}%
+\contentsline {section}{\numberline {9}Comparison}{12}{section.9}%
+\contentsline {subsection}{\numberline {9.1}NIST PQC Candidates}{12}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}Contrast with FBC (Section~\ref {sec:fbc})}{13}{subsection.9.2}%
+\contentsline {section}{\numberline {10}Open Problems}{13}{section.10}%
+\contentsline {section}{\numberline {11}Conclusion}{13}{section.11}%
