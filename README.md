@@ -80,6 +80,31 @@ R = diag(e^{−4πi/5}, e^{3πi/5})
 
 ---
 
+### Sparse Kernels — F₄ Algebra and Shor Simulation
+
+| File | Content |
+|------|---------|
+| `sparse-kernels/shor_matrix.c` | 4-qubit Shor simulation: bit-reversed mod-exp + full QFT matrix. Output verified: `0.2310 + 0.0957i = (1/4)e^{2πi/16}` |
+| `sparse-kernels/f4_core.c` | F₄ root system (48 roots) + Weyl group orbit (order 1152) |
+| `sparse-kernels/F4Invariants.lean` | Lean 4 arithmetic verification of all F₄ combinatorial invariants (zero sorry) |
+
+**F₄ ≅ Aut(h₃(𝕆)): automorphism group of the Albert algebra.**
+- dim F₄ = 52 = 36 (𝔰𝔬(9)) + 16 (𝕆¹⁶ spinor)
+- dim h₃(𝕆) = 27 = 3 (diagonal) + 3×8 (off-diagonal octonions)
+- Root system: 24 long roots (permutations of (±1,±1,0,0)) + 24 short roots
+- |W(F₄)| = 1152 = 2⁷·3² (Weyl group order)
+- Cartan decomposition: 52 = rank(4) + |roots|(48)
+
+**Connection to Fibonacci anyons:**
+The short roots (±½,±½,±½,±½) with even sign-flip parity coincide with unit quaternions
+in the D₄ sub-lattice. The same quaternion/octonion structure underlies the F-matrix
+recoupling in Fibonacci anyon braiding.
+
+**Shor 7^4 ≡ 1 (mod 15) — formally verified in Lean 4:**
+`shor_period : 7^4 % 15 = 1`, `shor_factors : gcd(48,15)=3 ∧ gcd(50,15)=5`.
+
+---
+
 ### Cryptanalysis — Fibonacci Braid Conjugacy (FBC)
 
 | File | Content |
@@ -193,6 +218,12 @@ ahmad-foundations/
 │   └── BlackHoleGravity.idr   # Idris 2 dependent-type witnesses (1 believe_me on ISCO)
 ├── fibonacci-anyons/
 │   └── FibonacciAnyons.lean   # T1–T11: F/R matrices, unitarity, universality (1 sorry, 1 axiom)
+├── sparse-kernels/
+│   ├── shor_matrix.c          # 4-qubit Shor simulation: mod-exp + QFT (verified output)
+│   ├── f4_core.c              # F₄ Lie algebra: root system + Weyl group (48 roots, order 1152)
+│   ├── run_shor.sh            # Build/run harness (fixed from BOB's parallel version)
+│   ├── run_f4.sh              # Build/run harness for F₄
+│   └── F4Invariants.lean      # Lean 4: dim=52, |roots|=48, |W(F₄)|=1152 (zero sorry)
 └── cryptanalysis/
     ├── fbc_cipher.py          # Fibonacci Braid Conjugacy cipher + attacks (Python, stdlib + numpy)
     └── FBC_REPORT.md          # Full cryptanalysis report: break + open problems
