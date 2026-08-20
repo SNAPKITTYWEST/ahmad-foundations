@@ -45,6 +45,41 @@ Proof by contrapositive: Engine ∈ PR ⟹ Oracle_σ² ∈ P ⟹ P = NP.
 The σ²_θ oracle is BQP-complete (quantum amplitude estimation).
 PR ⊆ P ⊆ BQP, and the engine strictly requires BQP under P ≠ NP.
 
+### Fibonacci Anyons — Topological Quantum Computing (TQC)
+
+| File | Theorems | Content |
+|------|---------|---------|
+| `fibonacci-anyons/FibonacciAnyons.lean` | T1–T11, 1 sorry, 1 axiom | First-principles counter, F/R matrices, unitarity, universality |
+
+**What is proved sorry-free:**
+- T1 `counter_soundness` — if the brute-force search returns a word, it satisfies the predicate (structural induction)
+- T2 `phi_inv_sq_add` — φ⁻² + φ⁻¹ = 1 (golden ratio identity, nlinarith + Real.sq_sqrt)
+- T3 `F_self_inverse` — the Fibonacci F-matrix satisfies F·F = I (golden ratio algebra)
+- T4 `F_conjTranspose_self` — F† = F (real symmetric: star fixes real entries)
+- T5 `R₀_normSq_one` — |e^{−4πi/5}|² = 1 (Complex.abs_exp + exp(0)=1)
+- T6 `R₁_normSq_one` — |e^{3πi/5}|² = 1 (same chain)
+- T7 `sigma1_unitary` — the R-matrix satisfies R·R† = I (unit-norm diagonal)
+- T8 `sigma2_unitary` — F·R·F satisfies (F·R·F)·(F·R·F)† = I (algebraic from T3+T7)
+- T9 `mem_wordsOfLength` — every BraidWord lives in wordsOfLength of its length
+- T10 `braiding_is_dense` — ∀ U ε > 0, ∃ braid word within ε (from axiom A1)
+- T11 `counter_algorithm_complete` — brute-force terminates under universality (from T9 + A1)
+
+**One axiom** (cited theorem, not sorry):
+- A1 `fibonacci_anyon_universality` — Freedman, Kitaev, Larsen, Wang (2003), Bull. AMS 40(1)
+
+**One sorry** (precise algebraic statement, not mathematical uncertainty):
+- S1 `braid_relation` — σ₁σ₂σ₁ = σ₂σ₁σ₂ needs φ_inv²·(R₀−R₁)²+R₀·R₁ = 0 in ℚ(√5,ζ₅)
+
+**Ahmad's F-matrix** (from `fbc_cipher.py` derivation, now formally defined in Lean 4):
+```
+F = [[φ⁻¹,      φ⁻¹/²  ]     φ⁻¹ = (√5−1)/2
+     [φ⁻¹/²,   −φ⁻¹   ]]
+R = diag(e^{−4πi/5}, e^{3πi/5})
+ρ(σ₁) = R,  ρ(σ₂) = F·R·F,  ρ(σᵢ⁻¹) = ρ(σᵢ)†
+```
+
+---
+
 ### Cryptanalysis — Fibonacci Braid Conjugacy (FBC)
 
 | File | Content |
@@ -125,6 +160,7 @@ n ≥ 20 where dim ≈ 4181 makes matrix conjugacy infeasible (O(4181⁶) ≈ 10
 
 | File | Sorry | Reason | Priority |
 |------|-------|--------|----------|
+| `fibonacci-anyons/FibonacciAnyons.lean` | `braid_relation` (1) | φ_inv²(R₀−R₁)²+R₀R₁=0 needs cyclotomic arithmetic in ℚ(√5,ζ₅) | Next — CyclotomicField in Mathlib |
 | `nlbhe/LindbladPreservation.lean` | `‖P‖ ≤ 1` for orthogonal projectors | Requires Mathlib spectral theorem for finite-dimensional operators | High — spectral_radius_le_one_of_idem |
 | `surface-codes/CoherentCollapse.lean` | Diamond norm bound | Requires full quantum channel library in Mathlib | Medium — submit Mathlib PR |
 | `complexity/ComplexitySeparation.lean` | Axiomatised complexity classes | P vs NP is open; classes are axiomatic by design | By design — not a gap |
@@ -133,6 +169,7 @@ n ≥ 20 where dim ≈ 4181 makes matrix conjugacy infeasible (O(4181⁶) ≈ 10
 All 30 theorems in `black-hole/BlackHoleGravity.lean` are **sorry-free** (Lean 4, omega/ring/simp).
 All theorems in `nlbhe/SingularityElim.lean`, `nlbhe/PhaseVariance.lean`,
 and `surface-codes/FactoryThroughput.lean` are **sorry-free**.
+`fibonacci-anyons/FibonacciAnyons.lean` has **1 sorry** (braid_relation) and **1 axiom** (universality).
 
 ---
 
@@ -154,6 +191,8 @@ ahmad-foundations/
 ├── black-hole/
 │   ├── BlackHoleGravity.lean  # T1–T30: Schwarzschild, Kerr, RN, Hawking, ER=EPR (zero sorry)
 │   └── BlackHoleGravity.idr   # Idris 2 dependent-type witnesses (1 believe_me on ISCO)
+├── fibonacci-anyons/
+│   └── FibonacciAnyons.lean   # T1–T11: F/R matrices, unitarity, universality (1 sorry, 1 axiom)
 └── cryptanalysis/
     ├── fbc_cipher.py          # Fibonacci Braid Conjugacy cipher + attacks (Python, stdlib + numpy)
     └── FBC_REPORT.md          # Full cryptanalysis report: break + open problems
