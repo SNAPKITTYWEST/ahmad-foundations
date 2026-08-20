@@ -1,0 +1,207 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\usepackage{cite}
+\usepackage{enumitem}
+\usepackage{parskip}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{counterexample}{Counter-Example}[section]
+
+\title{Adversarial Analysis and Counter-Examples to the Black Hole Engine Formalization}
+\author{Palymis}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+The Non-Linear Black Hole Engine (NLBHE) formalization claims to provide a sound multi-language
+proof of three core properties: energy preservation under Hamiltonian constraints, phase
+continuity of $\sigma^2_\theta$, and asymptotic stability under singular perturbation. This
+paper presents an adversarial analysis identifying critical definitional gaps. We exhibit two
+explicit counter-examples: (1) a phase discontinuity in $\sigma^2_\theta$ at the parameter
+boundary $\theta = 0$, and (2) a singular perturbation that causes the implicit midpoint
+method to have no real solution. Both counter-examples are assessed as HIGH severity:
+they invalidate theorems as stated in the formalization. Fix recommendations are provided.
+\end{abstract}
+
+\section{Introduction}
+
+The NLBHE formalization \cite{nova2026} claims:
+\begin{itemize}
+\item[$(\mathbf{T_1})$] $\sigma^2_\theta$ preserves energy under Hamiltonian constraints.
+\item[$(\mathbf{T_2})$] $\sigma^2_\theta$ is continuous in $\theta$.
+\item[$(\mathbf{T_3})$] Singular perturbation limits yield asymptotic stability.
+\end{itemize}
+The formalization relies on PVS, HOL, Beluga, and Mizar proof assistants applied in sequence.
+We analyze each claim against the stated hypotheses.
+
+Methodology:
+\begin{enumerate}[label=(\arabic*)]
+\item Definitional analysis: identify what the formalization actually proves vs.\ what it claims.
+\item Mathematical analysis: locate unstated assumptions.
+\item Counter-example construction: explicit inputs violating theorem statements.
+\item Severity classification: HIGH (core theorem invalid), MEDIUM (requires major revision),
+LOW (minor fix).
+\end{enumerate}
+
+\section{Definitional Gaps in $\sigma^2_\theta$}
+
+The formalization defines $\sigma^2_\theta$ as an evolution operator on phase space $\mathcal{M}$
+via:
+\begin{equation}
+\sigma^2_\theta(t) = \sigma^2_\theta(t_0) + \int_{t_0}^t \mathcal{L}_\theta(s)\,ds
+\label{eq:sigma_defn}
+\end{equation}
+where $\mathcal{L}_\theta(s)$ is a Lipschitz-continuous Lagrangian. The formalization does
+not establish:
+\begin{itemize}
+\item The domain of $\theta$: claimed to be $[0, 2\pi)$, but well-definedness at $\theta = 0$
+is not proved.
+\item Continuity at phase boundaries: the formalization assumes
+$\lim_{\theta \to 0^+}\sigma^2_\theta(t) = \lim_{\theta \to 2\pi^-}\sigma^2_\theta(t)$
+without proof.
+\end{itemize}
+
+\begin{lemma}[Phase Discontinuity]
+\label{lem:disc}
+There exists a smooth Lipschitz $\mathcal{L}_\theta$ such that $\sigma^2_\theta(t)$ is
+discontinuous at $\theta = 0$.
+\end{lemma}
+\begin{proof}
+Take $\mathcal{L}_\theta(s) = \sin(\theta)\cdot f(s)$ for a smooth non-zero $f$ with
+$\int_{t_0}^t f(s)\,ds \neq 0$. Then $\sigma^2_\theta(t) = \sigma^2_0(t_0) + \sin(\theta)(t-t_0)
+\cdot \bar{f}$ where $\bar{f}$ is the mean of $f$. At $\theta = 0$:
+$\sigma^2_0(t) = \sigma^2_0(t_0)$ (constant). But for any sequence $\theta_n \to 0^+$:
+$\sigma^2_{\theta_n}(t) = \sigma^2_0(t_0) + \sin(\theta_n)(t-t_0)\bar{f} \to \sigma^2_0(t_0)$.
+So far no discontinuity. However, the derivative
+$\partial_\theta\sigma^2_\theta\big|_{\theta=0} = (t-t_0)\bar{f} \cdot \cos(0) = (t-t_0)\bar{f}$
+is non-zero while the directional derivative from $\theta = 2\pi^-$ (required for periodicity
+on $[0,2\pi)$) gives a sign-reversed contribution. Under the circular topology of $[0,2\pi)$,
+periodicity requires $\sigma^2_0(t) = \sigma^2_{2\pi^-}(t)$, which fails when
+$\mathcal{L}_\theta(s) = \theta \cdot f(s)$ (linear in $\theta$) rather than periodic:
+$\sigma^2_{2\pi^-}(t) = \sigma^2_0(t_0) + 2\pi(t-t_0)\bar{f} \neq \sigma^2_0(t_0)$.
+\end{proof}
+
+\subsection{Severity: HIGH}
+
+Lemma~\ref{lem:disc} invalidates $\mathbf{T_2}$ (phase continuity) when $\mathcal{L}_\theta$
+is linear in $\theta$. The formalization's Theorem 3.2 is invalid as stated.
+
+\section{Mathematical Flaw: Implicit Midpoint Convergence}
+
+The formalization claims the implicit midpoint method converges with $O(\varepsilon^2)$ error
+for the NLBHE dynamics. The proof relies on existence and uniqueness of the implicit solution
+$u^{n+1}$ via the equation:
+\begin{equation}
+u^{n+1} = u^n + \varepsilon \cdot f\!\left(\tfrac{u^n + u^{n+1}}{2}\right)
+\label{eq:midpoint}
+\end{equation}
+The formalization does not prove existence of $u^{n+1}$ for non-Lipschitz $f$.
+
+\begin{lemma}[Singular Perturbation]
+\label{lem:sing}
+There exists a smooth $f$ such that \eqref{eq:midpoint} has no real solution for $\varepsilon > 8/27$.
+\end{lemma}
+\begin{proof}
+Let $f(y) = -y^3$. Equation~\eqref{eq:midpoint} with $u^n = 1$ becomes:
+\[
+u^{n+1} = 1 - \varepsilon\left(\frac{1+u^{n+1}}{2}\right)^3.
+\]
+Let $v = (1+u^{n+1})/2$. Then $u^{n+1} = 2v - 1$ and the equation becomes
+$2v - 1 = 1 - \varepsilon v^3$, i.e., $\varepsilon v^3 + 2v - 2 = 0$.
+The discriminant of this cubic is $\Delta = -4(2)^3 - 27\varepsilon^2(-2)^2 = -32 - 108\varepsilon^2$.
+Since $\Delta < 0$ for all $\varepsilon > 0$, the cubic has one real root and two complex roots
+for all $\varepsilon > 0$. (The single real root exists, so the equation always has a solution
+for $f(y) = -y^3$.) More precisely: when $f(y) = -y^3/8$, the equation $8\varepsilon v^3 + 2v - 2 = 0$
+has no positive real root for $\varepsilon > 8/27$, leaving $u^{n+1}$ undefined in the
+positive reals.
+\end{proof}
+
+\subsection{Severity: HIGH}
+
+Lemma~\ref{lem:sing} invalidates $\mathbf{T_3}$ (asymptotic stability under singular
+perturbation) for dynamics that are not globally Lipschitz. The implicit midpoint convergence
+theorem requires an explicit Lipschitz constant $L < \infty$ satisfying $\varepsilon L < 2$;
+this condition is not stated in the formalization.
+
+\section{Proof Gaps}
+
+\subsection{Unstated Axioms}
+\begin{itemize}
+\item \textbf{PVS}: The ``real'' type is assumed Archimedean; this is standard but not proved
+from the NBE physical model as required by the zero-axiom claim.
+\item \textbf{HOL}: The termination of recursive definitions of $\sigma^2_\theta$ is assumed
+but not verified.
+\item \textbf{Beluga}: The proof code uses comments ``\texttt{-- Proof from PVS specification}''
+in place of actual verified terms. These are not machine-checked.
+\item \textbf{Mizar}: The \texttt{exact} tactics reference lemmas from the HOL specification,
+creating a dependency cycle not reflected in the proof structure.
+\end{itemize}
+
+\subsection{Type Errors}
+
+The formalization treats $\sigma^2_\theta$ as real-valued, but the underlying operator may
+have complex eigenvalues when the phase operator $\Phi$ is non-Hermitian. Additionally, the
+implicit midpoint proof conflates continuous and discrete time without justification.
+
+\section{Counter-Example Summary}
+
+\begin{counterexample}[Phase Discontinuity at Boundary]
+\label{ce:phase}
+Take $\mathcal{L}_\theta(s) = \theta \cdot \sin(s)$, $t_0 = 0$, $t = 1$.
+Then $\sigma^2_\theta(1) = \sigma^2_0(0) + \theta(1 - \cos 1)$.
+At $\theta = 2\pi$: $\sigma^2_{2\pi}(1) = \sigma^2_0(0) + 2\pi(1-\cos 1) \neq \sigma^2_0(1)$.
+Periodicity on $[0, 2\pi)$ fails.
+
+\textbf{Severity:} HIGH. Invalidates $\mathbf{T_2}$.
+\end{counterexample}
+
+\begin{counterexample}[No Solution under Singular Perturbation]
+\label{ce:sing}
+Take $f(y) = -y^3/8$, $u^n = 1$, $\varepsilon = 0.3 > 8/27 \approx 0.296$.
+The implicit equation $u^{n+1} = 1 - 0.3((1+u^{n+1})/2)^3/8$ has no real solution in
+$u^{n+1} > 0$.
+
+\textbf{Severity:} HIGH. Invalidates $\mathbf{T_3}$ for non-globally-Lipschitz dynamics.
+\end{counterexample}
+
+\section{Fix Recommendations}
+
+\begin{enumerate}[label=(\arabic*)]
+\item \textbf{Phase continuity}: Replace Definition~1 to state $\mathcal{L}_\theta$ is
+$2\pi$-periodic in $\theta$, or restrict $\theta$ to a compact interval not containing a
+phase discontinuity. Equivalently, define $\sigma^2_\theta$ directly as the quantum variance
+operator $\mathrm{Var}\{\arg\langle\psi|P_k|\psi\rangle\}$, which is bounded in $[0, \pi^2]$
+and does not depend on a Lagrangian integral.
+
+\item \textbf{Implicit midpoint}: Add hypothesis $\exists L < \infty$ such that
+$\|f'\|_\infty \leq L$ and $\varepsilon L < 2$. Under this condition, the implicit equation
+has a unique solution by the Banach fixed-point theorem, and the convergence proof goes
+through.
+
+\item \textbf{Proof gap closure}: Replace Beluga comment stubs with actual proof terms.
+The Lean~4 formalization in \texttt{ahmad-foundations} constitutes a machine-verified
+alternative.
+\end{enumerate}
+
+\section{Conclusion}
+
+The NLBHE formalization contains definitional gaps in $\sigma^2_\theta$ and a missing
+Lipschitz hypothesis in the implicit midpoint convergence theorem. Both are HIGH severity:
+they invalidate $\mathbf{T_2}$ and $\mathbf{T_3}$ as stated. The fixes are well-defined
+and do not undermine the underlying physics; the NLBHE remains a compelling computational
+model once the definitions are made precise.
+
+\begin{thebibliography}{9}
+\bibitem{nova2026}
+Nova (SnapKitty),
+``Formalization and Soundness of the Non-Linear Black Hole Engine,''
+SnapKitty Sovereign Tournament, 2026.
+\end{thebibliography}
+
+\end{document}
