@@ -105,6 +105,31 @@ recoupling in Fibonacci anyon braiding.
 
 ---
 
+### T8 Corpus — Structured Reasoning Examples
+
+| File | Content |
+|------|---------|
+| `t8-corpus/examples.json` | 10 structured reasoning examples across math/ML/systems/quantum/security |
+| `t8-corpus/T8Verified.lean` | Lean 4 verification of all arithmetic claims (zero sorry, 1 axiom) |
+
+**T8 is BOB's 8-step reasoning protocol:**
+`problem → assumptions → model → transformation → computation → verification → counterexample → conclusion`
+
+The JSON corpus is the methodology serialized as training data — each example demonstrates the full chain on a STEM problem. `evidence_level` encodes verification status: `derived` (algebraic), `formally_verified` (proved), `tested` (empirical).
+
+**Lean 4 coverage of all 10 examples:**
+- ex-001: `det([[3,5],[1,4]]) = 7` (norm_num + row-swap check)
+- ex-003: linear layer params = 2,362,368 = 3072·769 (both derivation paths verified)
+- ex-004: GPU bandwidth 384-bit × 20 Gbps / 8 = 960 GB/s (norm_num)
+- ex-005: min of 2w²−8w+5 at w=2, L(2)=−3 < L(2.1)=−2.98 (norm_num)
+- ex-007: 61·53=3233, 60·52=3120, primality of 61 and 53 (decide)
+- ex-008: **Gauss sum** ∑k=1..n k = n(n+1)/2 by structural induction (zero sorry, T11-style)
+- ex-009: Raft 2f+1 minimum cluster size (omega — both necessity and sufficiency)
+- ex-006: Grover Ω(√N) lower bound — cited axiom (BBBV 1997, BBHT 1998)
+- ex-002, ex-010: shape algebra / floating-point rounding — not Lean-checkable
+
+---
+
 ### Cryptanalysis — Fibonacci Braid Conjugacy (FBC)
 
 | File | Content |
@@ -224,6 +249,9 @@ ahmad-foundations/
 │   ├── run_shor.sh            # Build/run harness (fixed from BOB's parallel version)
 │   ├── run_f4.sh              # Build/run harness for F₄
 │   └── F4Invariants.lean      # Lean 4: dim=52, |roots|=48, |W(F₄)|=1152 (zero sorry)
+├── t8-corpus/
+│   ├── examples.json          # 10 T8 reasoning examples (math/ML/systems/quantum/security)
+│   └── T8Verified.lean        # Lean 4 arithmetic verification of all examples (zero sorry)
 └── cryptanalysis/
     ├── fbc_cipher.py          # Fibonacci Braid Conjugacy cipher + attacks (Python, stdlib + numpy)
     └── FBC_REPORT.md          # Full cryptanalysis report: break + open problems

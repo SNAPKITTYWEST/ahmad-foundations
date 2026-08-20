@@ -1,0 +1,206 @@
+[
+  {
+    "id": "ex-001-math-la",
+    "domain": "math",
+    "input": "Compute the determinant of the 2x2 real matrix A = [[3, 5], [1, 4]].",
+    "t8": {
+      "problem": "Determine det(A) for matrix A = [[3, 5], [1, 4]].",
+      "assumptions": [
+        "A is a matrix over the real numbers R.",
+        "Standard 2x2 matrix determinant formula applies: det([[a, b], [c, d]]) = ad - bc."
+      ],
+      "model": "A = [[a, b], [c, d]] where a = 3, b = 5, c = 1, d = 4.",
+      "transformation": "det(A) = (a * d) - (b * c)",
+      "computation": "det(A) = (3 * 4) - (5 * 1) = 12 - 5 = 7.",
+      "verification": "Check row operations: swap rows to get A' = [[1, 4], [3, 5]] with det(A') = 1*5 - 4*3 = -7. Since swapping one pair of rows flips the sign of the determinant, det(A) = -det(A') = -(-7) = 7.",
+      "counterexample": "No counterexample identified under the stated assumptions.",
+      "conclusion": "det(A) = 7."
+    },
+    "evidence_level": "derived",
+    "difficulty": 1
+  },
+  {
+    "id": "ex-002-ml-tensor",
+    "domain": "ML",
+    "input": "Determine the output shape of a batch matrix multiplication between Tensor A of shape (B, M, K) and Tensor B of shape (B, K, N).",
+    "t8": {
+      "problem": "Determine the resulting tensor shape for batch matrix multiplication AB.",
+      "assumptions": [
+        "B, M, K, and N are positive integers.",
+        "Standard batch matrix multiplication rules apply across the batch dimension B.",
+        "The inner dimensions K match."
+      ],
+      "model": "Operation: C[b, i, j] = sum_{k=0}^{K-1} A[b, i, k] * B[b, k, j] for b in [0..B-1], i in [0..M-1], j in [0..N-1].",
+      "transformation": "Dimension mapping: (B, M, K) x (B, K, N) -> (B, M, N) by contracting along dimension K.",
+      "computation": "Batch index dimension = B; Row dimension = M; Column dimension = N. Resulting shape tuple = (B, M, N).",
+      "verification": "Set B=2, M=3, K=4, N=5. Input elements per batch: A has 3x4, B has 4x5. Matrix product per batch has shape 3x5. Including batch dimension yields shape (2, 3, 5). Matches (B, M, N).",
+      "counterexample": "No counterexample identified under the stated assumptions.",
+      "conclusion": "The output tensor shape is (B, M, N)."
+    },
+    "evidence_level": "derived",
+    "difficulty": 2
+  },
+  {
+    "id": "ex-003-ml-inference",
+    "domain": "ML",
+    "input": "Calculate the total parameter count for a single dense linear layer with 768 input features, 3072 output features, and a bias vector.",
+    "t8": {
+      "problem": "Calculate the total trainable parameters P in a linear layer mapping R^768 to R^3072 with bias.",
+      "assumptions": [
+        "The layer computes Y = X * W + b.",
+        "W is a weight matrix of shape (768, 3072).",
+        "b is a bias vector of shape (3072,)."
+      ],
+      "model": "P = P_weights + P_bias where P_weights = d_in * d_out and P_bias = d_out.",
+      "transformation": "P = (d_in * d_out) + d_out = d_out * (d_in + 1)",
+      "computation": "P_weights = 768 * 3072 = 2,359,296. P_bias = 3072. P = 2,359,296 + 3072 = 2,362,368.",
+      "verification": "Factored calculation: 3072 * (768 + 1) = 3072 * 769 = 2,362,368. Both methods match.",
+      "counterexample": "No counterexample identified under the stated assumptions.",
+      "conclusion": "The linear layer contains 2,362,368 trainable parameters."
+    },
+    "evidence_level": "derived",
+    "difficulty": 2
+  },
+  {
+    "id": "ex-004-systems-gpu",
+    "domain": "systems",
+    "input": "Calculate the total memory bandwidth in GB/s for a GPU with a 384-bit memory bus running VRAM at 20 Gbps memory clock speed.",
+    "t8": {
+      "problem": "Calculate peak theoretical memory bandwidth BW in gigabytes per second (GB/s).",
+      "assumptions": [
+        "Bus width = 384 bits.",
+        "Effective data rate per line = 20 Gbps (20 x 10^9 bits per second).",
+        "1 byte = 8 bits.",
+        "Standard SI gigabyte definition: 1 GB = 10^9 bytes."
+      ],
+      "model": "BW = (Bus Width in bits * Data Rate in bits/sec) / (8 bits/byte * 10^9 bytes/GB)",
+      "transformation": "BW = (384 * 20 x 10^9) / (8 * 10^9) = (384 * 20) / 8",
+      "computation": "BW = 384 * (20 / 8) = 384 * 2.5 = 960 GB/s.",
+      "verification": "Alternative grouping: Bus width in bytes = 384 / 8 = 48 bytes. BW = 48 bytes * 20 x 10^9 transfers/sec = 960 x 10^9 bytes/sec = 960 GB/s.",
+      "counterexample": "No counterexample identified under the stated assumptions.",
+      "conclusion": "The peak theoretical memory bandwidth is 960 GB/s."
+    },
+    "evidence_level": "derived",
+    "difficulty": 3
+  },
+  {
+    "id": "ex-005-opt-grad",
+    "domain": "ML",
+    "input": "Find the critical point of the convex loss function L(w) = 2w^2 - 8w + 5.",
+    "t8": {
+      "problem": "Find the optimal weight w* that minimizes L(w).",
+      "assumptions": [
+        "w is a real variable.",
+        "L(w) is strictly convex (second derivative > 0)."
+      ],
+      "model": "L(w) = 2w^2 - 8w + 5; dL/dw = 4w - 8; d^2L/dw^2 = 4.",
+      "transformation": "First-order optimality condition: set dL/dw = 0.",
+      "computation": "4w - 8 = 0 => 4w = 8 => w = 2.",
+      "verification": "Check second derivative: d^2L/dw^2 = 4 > 0, confirming a global minimum. Evaluate L(2) = 2(4) - 8(2) + 5 = 8 - 16 + 5 = -3. Evaluate neighbor L(2.1) = 2(4.41) - 8(2.1) + 5 = 8.82 - 16.8 + 5 = -2.98 > -3.",
+      "counterexample": "No counterexample identified under the stated assumptions.",
+      "conclusion": "The unique global minimum is at w* = 2."
+    },
+    "evidence_level": "derived",
+    "difficulty": 2
+  },
+  {
+    "id": "ex-006-quantum-grover",
+    "domain": "quantum",
+    "input": "Determine the asymptotic query complexity of Grover's search algorithm for searching an unsorted database of N items.",
+    "t8": {
+      "problem": "Determine the asymptotic query complexity O(g(N)) of Grover's search.",
+      "assumptions": [
+        "The database contains N unsorted elements with a single target element.",
+        "Access to the database is via a standard quantum oracle."
+      ],
+      "model": "State space is a 2D subspace spanned by the target state |w> and uniform superposition |s'>. Each Grover iteration rotates the state vector by angle theta where sin(theta) = 1/sqrt(N).",
+      "transformation": "Number of required rotations R approx (pi / 4) / theta approx (pi / 4) * sqrt(N).",
+      "computation": "R = O(sqrt(N)).",
+      "verification": "BBHT theorem proves quantum query lower bound for unstructured search is Omega(sqrt(N)). Upper bound matches lower bound, establishing tight bound Theta(sqrt(N)). Thus O(sqrt(N)) holds.",
+      "counterexample": "Attempting O(1) or O(log N) fails due to BBBV theorem establishing the Omega(sqrt(N)) lower bound for quantum unstructured search.",
+      "conclusion": "Grover's algorithm has an asymptotic query complexity of O(sqrt(N))."
+    },
+    "evidence_level": "formally_verified",
+    "difficulty": 4
+  },
+  {
+    "id": "ex-007-security-rsa",
+    "domain": "security",
+    "input": "In RSA, given primes p = 61 and q = 53, compute the modulus n and Euler's totient phi(n).",
+    "t8": {
+      "problem": "Compute RSA parameters n and phi(n) given primes p and q.",
+      "assumptions": [
+        "p and q are distinct prime numbers.",
+        "Standard RSA key generation definitions apply."
+      ],
+      "model": "n = p * q; phi(n) = (p - 1) * (q - 1).",
+      "transformation": "Substitute p = 61 and q = 53 directly into product formulas.",
+      "computation": "n = 61 * 53 = 3233. phi(n) = (61 - 1) * (53 - 1) = 60 * 52 = 3120.",
+      "verification": "Check expansion: 60 * 52 = 60 * (50 + 2) = 3000 + 120 = 3120. Check n: 61 * 53 = 61 * (50 + 3) = 3050 + 183 = 3233.",
+      "counterexample": "No counterexample identified under the stated assumptions.",
+      "conclusion": "The RSA modulus n = 3233 and phi(n) = 3120."
+    },
+    "evidence_level": "derived",
+    "difficulty": 3
+  },
+  {
+    "id": "ex-008-formal-verif",
+    "domain": "math",
+    "input": "Prove by structural induction that the sum of the first n positive integers is n(n + 1)/2.",
+    "t8": {
+      "problem": "Prove S(n) = sum_{k=1}^n k = n(n + 1)/2 for all integers n >= 1.",
+      "assumptions": [
+        "n is a positive integer.",
+        "Standard mathematical induction over natural numbers."
+      ],
+      "model": "Base case P(1): S(1) = 1. Inductive hypothesis P(k): S(k) = k(k + 1)/2. Inductive step: Prove P(k+1): S(k+1) = (k + 1)(k + 2)/2.",
+      "transformation": "S(k+1) = S(k) + (k + 1) = [k(k + 1)/2] + (k + 1)",
+      "computation": "S(k+1) = (k + 1) * [k/2 + 1] = (k + 1) * [(k + 2)/2] = (k + 1)(k + 2)/2.",
+      "verification": "Test base case P(1): 1(1+1)/2 = 2/2 = 1 (True). Test P(3): 1 + 2 + 3 = 6; 3(4)/2 = 6 (True). Both base case and inductive step hold.",
+      "counterexample": "No counterexample identified under the stated assumptions.",
+      "conclusion": "The identity sum_{k=1}^n k = n(n + 1)/2 holds for all n >= 1."
+    },
+    "evidence_level": "formally_verified",
+    "difficulty": 3
+  },
+  {
+    "id": "ex-009-dist-sys",
+    "domain": "systems",
+    "input": "Determine the minimum number of total nodes required in a Raft consensus cluster to tolerate f node failures.",
+    "t8": {
+      "problem": "Determine minimum cluster size N required to remain operational given f arbitrary stop-fail node crashes.",
+      "assumptions": [
+        "Failure model is crash-stop (non-Byzantine).",
+        "Raft requires a strict majority quorum to elect a leader and commit entries."
+      ],
+      "model": "A majority quorum size Q requires Q >= floor(N/2) + 1. To tolerate f failures, remaining nodes N - f must be able to form a majority: N - f >= Q.",
+      "transformation": "N - f >= floor(N/2) + 1 => N - f >= (N/2) + 0.5 => N/2 >= f + 0.5 => N >= 2f + 1.",
+      "computation": "For f failures, minimum integer N is 2f + 1.",
+      "verification": "Set f = 2 failures. N = 2(2) + 1 = 5 nodes. Majority quorum Q = floor(5/2) + 1 = 3. If 2 nodes fail, 5 - 2 = 3 nodes remain active, forming a valid majority quorum. If N = 4, 4 - 2 = 2 nodes remain, which is less than majority Q = 3.",
+      "counterexample": "No counterexample identified under the stated assumptions.",
+      "conclusion": "The minimum number of nodes required to tolerate f crash failures is 2f + 1."
+    },
+    "evidence_level": "derived",
+    "difficulty": 3
+  },
+  {
+    "id": "ex-010-num-stability",
+    "domain": "math",
+    "input": "Evaluate the numerical stability of computing log(1 + x) for small x using direct evaluation versus the standard log1p(x) function.",
+    "t8": {
+      "problem": "Analyze catastrophic cancellation in evaluating log(1 + x) when |x| << 1 in floating-point arithmetic.",
+      "assumptions": [
+        "Arithmetic follows IEEE 754 double precision standard.",
+        "x is a floating-point value close to 0 (e.g., x = 1e-15)."
+      ],
+      "model": "Direct evaluation computes y = 1 + x, then z = log(y). Taylor series expansion: log(1 + x) = x - x^2/2 + x^3/3 - ...",
+      "transformation": "Identify precision loss step: when |x| < machine epsilon eps (approx 2.22e-16), 1 + x rounds to 1, causing log(1+x) to yield 0 instead of x.",
+      "computation": "Let x = 1e-15. In IEEE 754, 1.0 + 1e-15 loses low-order bits due to exponent alignment. Direct log(1.0 + 1e-15) gives ~1.1102e-15 (error ~11%). For x = 1e-17, direct 1.0 + 1e-17 = 1.0, giving log(1.0) = 0.0 (100% relative error). log1p(x) uses Taylor approximation for small x to retain full precision (~1e-17).",
+      "verification": "Compare log1p(1e-15) output against Taylor expansion first term T1 = 1e-15. log1p(1e-15) accurately yields 9.999999999999995e-16, avoiding zeroing.",
+      "counterexample": "Direct computation log(1 + x) fails for x < machine epsilon.",
+      "conclusion": "Direct evaluation of log(1 + x) suffers from catastrophic cancellation for small x; log1p(x) is numerically stable."
+    },
+    "evidence_level": "tested",
+    "difficulty": 4
+  }
+]
