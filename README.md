@@ -45,6 +45,37 @@ Proof by contrapositive: Engine ∈ PR ⟹ Oracle_σ² ∈ P ⟹ P = NP.
 The σ²_θ oracle is BQP-complete (quantum amplitude estimation).
 PR ⊆ P ⊆ BQP, and the engine strictly requires BQP under P ≠ NP.
 
+### Cryptanalysis — Fibonacci Braid Conjugacy (FBC)
+
+| File | Content |
+|------|---------|
+| `cryptanalysis/fbc_cipher.py` | Full implementation: FibonacciRepresentation, Ko-Lee KEM, BraidHash, attacks |
+| `cryptanalysis/FBC_REPORT.md` | Cryptanalysis report: break proof, quantum analysis, open problems |
+
+**New construction:** Ko-Lee key exchange adapted to Fibonacci anyon braid group B_n(τ).
+Commuting subgroups (left strands 1..m, right strands m+1..n) ensure correctness.
+Shared secret derived from unitary matrix representation ρ: B_n(τ) → U(dim).
+
+**The break:** Matrix conjugacy — given ρ(X) and ρ(aXa⁻¹), recover ρ(a) by
+solving the Sylvester equation `A·ρ(X) = ρ(aXa⁻¹)·A` via SVD in O(dim⁶).
+For n=8 strands (dim=5): 5⁶ = 15,625 operations, < 1 ms classically.
+
+**Quantum advantage:** Polynomial only (O(dim³) vs O(dim⁶)). No exponential
+quantum speedup. Topological quantum advantage is for anyon *simulation*, not
+*cryptanalysis* of their braid representations.
+
+**Open problem:** Fibonacci Braid Hash `H(m) = KDF(trace(ρ(braid(m))))`.
+Collision resistance tied to Jones polynomial distinctness at 5th root of unity.
+No polynomial attack known. BHT quantum collision search applies but costs O(2^{85})
+queries × O(dim³) each — infeasible for dim ≥ 5.
+
+**Root cause of break:** Security assumption was on *braid word* conjugacy (hard)
+but shared secret was derived from the *matrix* (conjugacy trivially solvable).
+Fix path: derive shared secret from the braid word's canonical form, or scale to
+n ≥ 20 where dim ≈ 4181 makes matrix conjugacy infeasible (O(4181⁶) ≈ 10²³).
+
+---
+
 ### Black Hole Gravity — 30 Theorems
 
 | File | Theorems | Content |
@@ -120,9 +151,12 @@ ahmad-foundations/
 │   └── FactoryThroughput.lean # Theorems 6-7: N_T > 9 crossover
 ├── complexity/
 │   └── ComplexitySeparation.lean  # Main: (P≠NP) ⟹ Engine ∉ PR
-└── black-hole/
-    ├── BlackHoleGravity.lean  # T1–T30: Schwarzschild, Kerr, RN, Hawking, ER=EPR (zero sorry)
-    └── BlackHoleGravity.idr   # Idris 2 dependent-type witnesses (1 believe_me on ISCO)
+├── black-hole/
+│   ├── BlackHoleGravity.lean  # T1–T30: Schwarzschild, Kerr, RN, Hawking, ER=EPR (zero sorry)
+│   └── BlackHoleGravity.idr   # Idris 2 dependent-type witnesses (1 believe_me on ISCO)
+└── cryptanalysis/
+    ├── fbc_cipher.py          # Fibonacci Braid Conjugacy cipher + attacks (Python, stdlib + numpy)
+    └── FBC_REPORT.md          # Full cryptanalysis report: break + open problems
 ```
 
 ---
