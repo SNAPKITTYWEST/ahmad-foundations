@@ -116,36 +116,104 @@ class FibonacciRepresentation:
         return [b for b in basis if b[-1] == total]
 
     def sigma_matrix(self, i: int) -> List[List[complex]]:
-        """Matrix for generator σ_i (1-indexed)."""
+        """
+        Matrix for generator σ_i (1-indexed).
+
+        σ_i acts on fusion at position i-1 in the path (0-indexed labels).
+        Path = (c_1, ..., c_{n-2}); σ_i changes c_{i-1}.
+          c_before = c_{i-2}  (None if i == 1)
+          c_after  = c_i      (total_charge if i == n-1)
+        """
         dim = self.dim
         mat = [[0j] * dim for _ in range(dim)]
 
-        for row_idx, row_path in enumerate(self.basis):
-            for col_idx, col_path in enumerate(self.basis):
-                if i - 1 < len(row_path) and i < len(row_path):
-                    match = True
-                    for k in range(len(row_path)):
-                        if k != i - 1 and k != i and row_path[k] != col_path[k]:
-                            match = False
-                            break
-                    if not match:
-                        continue
-                    a, b = row_path[i - 1], row_path[i]
-                    c, d = col_path[i - 1], col_path[i]
-                    mat[row_idx][col_idx] = self._braid_element(a, b, c, d)
+        # Build a fast lookup: path -> index
+        basis_map = {p: idx for idx, p in enumerate(self.basis)}
+
+        for col_idx, path in enumerate(self.basis):
+            # Determine boundary charges for σ_i
+            if i == 1:
+                c_before = None
+            else:
+                c_before = path[i - 2]  # path is 0-indexed, position i-2
+
+            if i >= len(path):
+                c_after = self.total_charge
+            else:
+                c_after = path[i]       # position i (0-indexed)
+
+            c_local = path[i - 1]       # charge being acted on
+
+            # Iterate over valid new charge values
+            for c_prime in [0, 1]:
+                new_path = list(path)
+                new_path[i - 1] = c_prime
+                new_path = tuple(new_path)
+                if new_path not in basis_map:
+                    continue
+                row_idx = basis_map[new_path]
+                val = self._braid_element(c_before, c_local, c_prime, c_after)
+                mat[row_idx][col_idx] = val
+
         return mat
 
-    def _braid_element(self, a: int, b: int, c: int, d: int) -> complex:
-        """Compute ⟨a,b|σ|c,d⟩ for Fibonacci anyons."""
-        if a == 0 and b == 0 and c == 0 and d == 0:
-            return R_PHASE_0
-        if a == 1 and b == 1 and c == 1 and d == 1:
-            return R_PHASE_1
-        if a == 0 and b == 1 and c == 0 and d == 1:
-            return R_PHASE_1
-        if a == 1 and b == 0 and c == 1 and d == 0:
-            return R_PHASE_1
-        return 0j
+    def _braid_element(self, c_before, c_local, c_prime, c_after) -> complex:
+        """
+        Local matrix element ⟨c_prime | σ_i | c_local⟩ for Fibonacci anyons.
+
+        c_before : intermediate charge before position i (None = left boundary)
+        c_local  : current charge at position i-1
+        c_prime  : new charge at position i-1 (row index)
+        c_after  : intermediate charge after position i+1 (None = right boundary
+                   or total_charge for the last position)
+
+        Rules derived from Fibonacci F-matrix and R-matrix:
+          F = [[φ⁻¹, φ⁻¹ᐟ²], [φ⁻¹ᐟ², −φ⁻¹]]   (self-inverse: F² = I)
+          R⁰ = e^{−4πi/5}, R¹ = e^{3πi/5}
+
+        When c_before = 1 and c_after = 1 (both τ), the full 2×2 F-recoupling
+        applies:  [σ]_{c', c} = Σ_λ F[c,λ] R_λ F[c',λ]   (F is real, self-inverse)
+        Otherwise the intermediate charge is forced by fusion rules and σ is diagonal.
+        """
+        # Determine valid intermediate charges given boundary
+        def valid_local(cb, ca):
+            result = []
+            for ch in [0, 1]:
+                # Left: cb × τ → ch valid?
+                if cb is None:
+                    left_ok = True  # left boundary: first τ anyon
+                elif cb == 0:
+                    left_ok = (ch == 1)  # 0 × τ = τ only
+                else:  # cb == 1
+                    left_ok = True  # τ × τ = 0 + τ, both valid
+                # Right: ch × τ → ca valid?
+                if ca is None:
+                    right_ok = True
+                elif ca == 0:
+                    right_ok = (ch == 1)  # only τ × τ → 0
+                else:  # ca == 1
+                    right_ok = True  # 0 × τ = τ, τ × τ = 0+τ
+                if left_ok and right_ok:
+                    result.append(ch)
+            return result
+
+        valid = valid_local(c_before, c_after)
+
+        if c_local not in valid or c_prime not in valid:
+            return 0j
+
+        if len(valid) == 1:
+            # 1D: only one channel, diagonal R-matrix
+            ch = valid[0]
+            if c_local == c_prime == ch:
+                return R_PHASE_0 if ch == 0 else R_PHASE_1
+            return 0j
+
+        # 2D: full Fibonacci F-matrix recoupling
+        # [σ]_{c', c} = Σ_λ F[c,λ] R_λ F[c',λ]  (F real and symmetric)
+        F = [[PHI_INV, PHI_SQRT_INV], [PHI_SQRT_INV, -PHI_INV]]
+        R = [R_PHASE_0, R_PHASE_1]
+        return sum(F[c_local][lam] * R[lam] * F[c_prime][lam] for lam in range(2))
 
     def braid_matrix(self, word: BraidWord) -> List[List[complex]]:
         dim = self.dim
