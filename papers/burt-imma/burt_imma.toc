@@ -1,0 +1,45 @@
+\contentsline {part}{I\hspace {1em}The Lineage: Eighty Years of Nudging Weights}{4}{part.1}%
+\contentsline {section}{\numberline {1}The Foundational Mechanics of Artificial Neurons}{4}{section.1}%
+\contentsline {subsection}{\numberline {1.1}The McCulloch-Pitts Abstraction (1943)}{4}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Rosenblatt and the Perceptron (1957)}{4}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}The Linear-Separability Bottleneck (1969)}{4}{subsection.1.3}%
+\contentsline {section}{\numberline {2}Multi-Layer Perceptrons and the Credit Assignment Problem}{4}{section.2}%
+\contentsline {subsection}{\numberline {2.1}The Problem}{4}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Backpropagation and Gradient Descent}{5}{subsection.2.2}%
+\contentsline {section}{\numberline {3}Evolution of Specialized Architectures}{5}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Convolutional Networks and AlexNet (2012)}{5}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Recurrent Networks, Vanishing Gradients, and the LSTM}{5}{subsection.3.2}%
+\contentsline {section}{\numberline {4}The Transformer Era}{5}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Self-Attention: Query, Key, Value}{5}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Feature Superposition and Polysemantic Neurons}{5}{subsection.4.2}%
+\contentsline {part}{II\hspace {1em}The Fork: BURT-IMMA and Matrix-Memory Equilibrium Propagation}{6}{part.2}%
+\contentsline {section}{\numberline {5}Where and Why the Lineage Forks}{6}{section.5}%
+\contentsline {subsection}{\numberline {5.1}The Thirteen Layers}{6}{subsection.5.1}%
+\contentsline {section}{\numberline {6}The Memory Cell: The LSTM, Lifted}{6}{section.6}%
+\contentsline {subsection}{\numberline {6.1}The IMMA Expert Cell}{7}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Sum-Inversion: Storage and Retrieval Theory}{7}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Trace Conservation (Corrected per Audit Finding 1)}{7}{subsection.6.3}%
+\contentsline {section}{\numberline {7}MMEP: Credit Assignment Without the Tape}{8}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Equilibrium Propagation, Inherited and Extended}{8}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Energy Function}{8}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}The Two Phases and the Whole Rule}{8}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.4}Convergence (Audit-Strengthened)}{8}{subsection.7.4}%
+\contentsline {subsection}{\numberline {7.5}Four-Phase Training Protocol}{9}{subsection.7.5}%
+\contentsline {section}{\numberline {8}The Constraint Subsystem}{9}{section.8}%
+\contentsline {subsection}{\numberline {8.1}$H(\alpha ) \leq 0.20$ Nats, Always}{9}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Spectral Projection: $\sigma _{\max }(W) \leq 0.95$}{9}{subsection.8.2}%
+\contentsline {section}{\numberline {9}SmoothLeaky Activation: Four Axioms}{9}{section.9}%
+\contentsline {section}{\numberline {10}Retrieval, Generation, and the Verification Gauntlet}{10}{section.10}%
+\contentsline {subsection}{\numberline {10.1}BURT: Retrieval Phase}{10}{subsection.10.1}%
+\contentsline {subsection}{\numberline {10.2}IMMA: Generation Phase}{10}{subsection.10.2}%
+\contentsline {subsection}{\numberline {10.3}Superpositioned Induction Heads}{10}{subsection.10.3}%
+\contentsline {subsection}{\numberline {10.4}Oracle Validation and Phase-Mask Interference}{11}{subsection.10.4}%
+\contentsline {subsection}{\numberline {10.5}Boolean Perceptron Actors: Rosenblatt, Completed}{11}{subsection.10.5}%
+\contentsline {subsection}{\numberline {10.6}Sum-Inversion Decoding: Generation Without the Softmax Lottery}{11}{subsection.10.6}%
+\contentsline {subsection}{\numberline {10.7}Adversarial Input Recovery: Formal Mechanisms}{11}{subsection.10.7}%
+\contentsline {section}{\numberline {11}CUDA Implementation}{12}{section.11}%
+\contentsline {section}{\numberline {12}The Lean~4 Ledger: What Is Actually Proved}{12}{section.12}%
+\contentsline {subsection}{\numberline {12.1}Adversarial Audit Responses}{13}{subsection.12.1}%
+\contentsline {section}{\numberline {13}Falsification Protocol}{14}{section.13}%
+\contentsline {section}{\numberline {14}Limitations}{15}{section.14}%
+\contentsline {section}{\numberline {15}Conclusion and Core Insight}{15}{section.15}%
